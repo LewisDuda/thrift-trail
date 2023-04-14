@@ -28,6 +28,7 @@ module.exports = {
 				five: '2c3333b3',
 			},
 			slate: colors.slate,
+			transparent: colors.transparent,
 		},
 		extend: {
 			backgroundImage: {

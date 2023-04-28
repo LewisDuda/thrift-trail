@@ -28,12 +28,21 @@ module.exports = {
 				five: '2c3333b3',
 			},
 			slate: colors.slate,
+			white: colors.white,
+			black: colors.black,
+			lightShadow: 'rgba(0, 0, 0, 0.1)',
+			darkShadow: 'rgba(0, 0, 0, 0.7)',
 			transparent: colors.transparent,
+			alert: '#EA5455',
+			success: '#5D9C59',
 		},
 		extend: {
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+			},
+			boxShadow: {
+				custom: '0 5px 10px',
 			},
 		},
 		fontFamily: {

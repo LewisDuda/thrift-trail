@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
 const ThemeSwitch = () => {
 	const { systemTheme, theme, setTheme } = useTheme();
@@ -11,20 +12,16 @@ const ThemeSwitch = () => {
 		} else {
 			setCurrentTheme(theme);
 		}
-	});
+	}, [theme, systemTheme]);
 
 	return (
-		<div className="fixed top-3 right-3">
+		<>
 			{currentTheme === 'dark' ? (
-				<button onClick={() => setTheme('light')}>
-					<SunIcon className="h-6 w-6 " />
-				</button>
+				<FontAwesomeIcon icon={faSun} className="h-full w-full" onClick={() => setTheme('light')} />
 			) : (
-				<button onClick={() => setTheme('dark')}>
-					<MoonIcon className="h-6 w-6 " />
-				</button>
+				<FontAwesomeIcon icon={faMoon} className="h-full w-full" onClick={() => setTheme('dark')} />
 			)}
-		</div>
+		</>
 	);
 };
 export default ThemeSwitch;

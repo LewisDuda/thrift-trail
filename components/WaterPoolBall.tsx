@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { useTheme } from 'next-themes';
 
 interface WaterPoolBallProps {
 	value: number;
@@ -6,7 +7,10 @@ interface WaterPoolBallProps {
 
 const WaterPoolBall = (props: WaterPoolBallProps) => {
 	const canvasRef = useRef(null);
-
+	const { theme } = useTheme();
+	const lightModeColor = '#395B64';
+	const darkModeColor = '#F5EFE6';
+	const color = theme === 'dark' ? darkModeColor : lightModeColor;
 	useEffect(() => {
 		let canvas = canvasRef.current as any;
 		if (!canvas) return;
@@ -86,7 +90,7 @@ const WaterPoolBall = (props: WaterPoolBallProps) => {
 		function drawText() {
 			ctx.globalCompositeOperation = 'source-over';
 
-			var size = 0.4 * cR;
+			var size = 0.4 * cR; // 0.4
 			ctx.font = 'bold ' + size + 'px Microsoft Yahei';
 
 			let txt = (nowdata.toFixed(2) * 100).toFixed(0) + '%';
@@ -95,9 +99,23 @@ const WaterPoolBall = (props: WaterPoolBallProps) => {
 			var fontx = r - size * 0.8;
 
 			if (txt === '100%') {
-				fontx = r - size * 1.2;
+				fontx = r - size * 1.3;
 			}
-			ctx.fillStyle = 'rgba(06, 85, 128, 0.8)';
+			ctx.fillStyle = color;
+			ctx.fillText(txt, fontx, fonty);
+		}
+
+		function drawBudgetText() {
+			ctx.globalCompositeOperation = 'source-over';
+			let size = 0.12 * cR;
+			ctx.font = 'bold ' + size + 'px Microsoft Yahei';
+
+			let txt = 'Available budget';
+
+			let fonty = r + size / 2 - 60;
+			let fontx = r - size * 0.8 - 60;
+
+			ctx.fillStyle = color;
 			ctx.fillText(txt, fontx, fonty);
 		}
 
@@ -156,11 +174,16 @@ const WaterPoolBall = (props: WaterPoolBallProps) => {
 				sp += 0.07;
 				drawSine();
 				drawText();
+				drawBudgetText();
 			}
 			requestAnimationFrame(render);
 		}
-	}, [props.value]);
-	return <canvas ref={canvasRef}></canvas>;
+	}, [props.value, theme]);
+	return (
+		<div className="relative w-max h-max">
+			<canvas className="w-40 md:w-72 lg:w-44 xl:w-48 2xl:w-60" ref={canvasRef}></canvas>
+		</div>
+	);
 };
 
 export default WaterPoolBall;

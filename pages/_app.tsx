@@ -1,5 +1,4 @@
 import '@/styles/globals.css';
-// import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
 import { NextComponentType, NextPageContext } from 'next/types';
 import { ThemeProvider } from 'next-themes';
@@ -14,6 +13,7 @@ function App({ Component, pageProps, session }: AppProps) {
 	return (
 		<ThemeProvider enableSystem={true} attribute="class">
 			<SessionProvider session={session}>
+				<title>Thrift-trail</title>
 				<Component {...pageProps} />
 			</SessionProvider>
 		</ThemeProvider>

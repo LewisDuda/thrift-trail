@@ -119,9 +119,9 @@ export const getServerSideProps = async (context: any) => {
 	}
 	const { user } = session;
 
-	const incomes_res = await fetch(`http://localhost:3000/api/incomes?email=${user?.email}`);
+	const incomes_res = await fetch(`/api/incomes?email=${user?.email}`);
 	const incomes_data = await incomes_res.json();
-	const spendings_res = await fetch(`http://localhost:3000/api/spendings?email=${user?.email}`);
+	const spendings_res = await fetch(`/api/spendings?email=${user?.email}`);
 	const spendings_data = await spendings_res.json();
 	const userLogo = !user?.image ? '/GuestLogo.webp' : String(user?.image);
 

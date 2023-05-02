@@ -31,7 +31,7 @@ export default function Login() {
 	return (
 		<>
 			<Head>
-				<title>Thrift-trail</title>
+				<title>Thrift Trail</title>
 			</Head>
 			<main className="min-h-screen font-sans relative flex justify-center items-center">
 				{/* <ThemeSwitch /> */}

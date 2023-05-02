@@ -60,7 +60,7 @@ export default function Register() {
 	return (
 		<>
 			<Head>
-				<title>Thrift-trail | Register</title>
+				<title>Thrift Trail | Register</title>
 			</Head>
 			<main className="min-h-screen font-sans relative flex justify-center items-center">
 				<div className="w-4/5 max-w-xl relative flex flex-col justify-center items-center p-7 bg-light-tertiary dark:bg-dark-secondary rounded-xl before:content[''] before:absolute before:inset-0 before:bg-light-five before:dark:bg-dark-five before:-rotate-6 before:-z-20 before:rounded-xl md:w-4/5 md:p-10 lg:w-2/5 lg:px-10 lg:py-3 xl:px-16 xl:py-6 2xl:w-1/4">

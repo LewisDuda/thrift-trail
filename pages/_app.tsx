@@ -13,7 +13,7 @@ function App({ Component, pageProps, session }: AppProps) {
 	return (
 		<ThemeProvider enableSystem={true} attribute="class">
 			<SessionProvider session={session}>
-				<title>Thrift-trail</title>
+				<title>Thrift Trail</title>
 				<Component {...pageProps} />
 			</SessionProvider>
 		</ThemeProvider>

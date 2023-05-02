@@ -14,7 +14,7 @@ const FourOhFour = () => {
 	return (
 		<>
 			<Head>
-				<title>Thrift-trail | 404</title>
+				<title>Thrift Trail | 404</title>
 			</Head>
 			<main className="h-full w-full flex flex-col justify-center items-center text-center p-6 gap-10 md:gap-12 2xl:gap-10">
 				<Image
